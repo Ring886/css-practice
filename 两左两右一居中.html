@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between; /* 左右分布 */
+      align-items: center; /* 垂直居中 */
+      width: 100%; /* 确保容器宽度 */
+    }
+
+    .left1, .left2, .right1, .right2, .center {
+      width: 100px;
+      height: 100px;
+    }
+
+    .center {
+      height: 100px;
+      background-color: yellow;
+      display: flex; /* 使用 flex 使内容居中 */
+      justify-content: center; /* 水平居中 */
+      align-items: center; /* 垂直居中 */
+      margin: 0 auto;
+    }
+    
+    .left1 {
+      background-color: red;
+    }
+    .left2 {
+      background-color: orange;
+    }
+    .right1 {
+      background-color: green;
+    }
+    .right2 {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left1"></div>
+    <div class="left2"></div>
+    <div class="center">居中</div>
+    <div class="right1"></div>
+    <div class="right2"></div>
+  </div>
+</body>
+</html>

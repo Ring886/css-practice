@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+    .box {
+      position: absolute;
+      right:0;
+      top:200px;
+      width: 200px;
+      height: 200px;
+      background-color: black;
+    }
+    .ad {
+      position: fixed;
+      left:0;
+      top:200px;
+      height: 200px;
+      width:200px;
+      font-size: 50px;
+      animation: change 0.5s steps(1) infinite;
+    }
+    @keyframes change {
+      0% {
+        background-color: red;
+        font-size: 25px;
+      }
+      50% {
+        background-color: yellow;
+        font-size: 70px;
+      }
+      100% {
+        background-color: red;
+        font-size: 25px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="ad">我是广告</div>
+</body>
+</html>

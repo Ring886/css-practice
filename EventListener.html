@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 10000px;
+    }
+    .box {
+      height: 100px;
+      width: 100px;
+      background-color: #aaaaab;
+    }
+    .circle{
+      font-size: 200px;
+      color: aqua;
+      /* visibility: hidden; */
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <li class="circle">123</li>
+  <script>
+    window.addEventListener('scroll', (e) => {
+      console.log('scroll!')
+    }, true)
+    const li = document.getElementsByClassName('circle')[0]     // 实测：如果如果把这语句放在setTimeout中，那么对 display 的修改就会失效，但是设置颜色生效，不知道为什么
+    setTimeout(() => {
+      // console.log(document.getElementsByClassName('circle'))
+      li.style['display'] = 'block'
+      // li.style['visibility'] = 'visible'
+      li.style['color'] = 'red'
+      console.log('emergency!')
+    }, 2000)
+  </script>
+  <div class="box"></div>
+  <script>
+    const box = document.getElementsByClassName('box')[0]
+    box.addEventListener('click', (e) => {
+      // console.log(e)
+      console.log(e.clientY)
+      console.log(e.pageY)
+      console.log('click!')
+    })
+    // setTimeout(() => {
+    //   console.log('emergency!')
+    // }, 5000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button>上传</button>
+    <input type="file" style="display: none;">
+  </div>
+
+  <script>
+    const btn = document.querySelector('button')
+    const input = document.querySelector('input')
+    btn.onclick = function() {
+      input.click()
+    }
+    input.addEventListener('change', (e) => {
+      const file = e.target.files[0]
+      const formData = new FormData();
+      formData.append('file', file);
+      if(file) {
+        fetch('http://39.102.208.63:4000/uploadfile', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.json())
+        .then(data => console.log('已上传', data))
+        .catch(err => console.log(`上传失败,${err}`))
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clock</title>
+  <style>
+    #canvas {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d')
+    const PI = Math.PI
+    var hour = 100
+    var minute = 150
+    var second = 160
+    ctx.arc(250, 250, 200, 0, PI * 2)
+    ctx.stroke()
+
+    let arc_h = PI * 5 / 6
+    let arc_m = PI * 3 / 2
+    let arc_s = PI / 2
+    ctx.moveTo(250, 250)
+    ctx.lineTo(250 + hour * Math.cos(arc_h), 250 - hour * Math.sin(arc_h))
+    ctx.moveTo(250, 250)
+    ctx.lineTo(250 + minute * Math.cos(arc_m), 250 - minute * Math.sin(arc_m))
+    ctx.moveTo(250, 250)
+    ctx.lineTo(250 + second * Math.cos(arc_s), 250 - second * Math.sin(arc_s))
+    ctx.stroke()
+    ctx.save()
+    setInterval(() => {
+      ctx.restore()
+      ctx.clearRect(0, 0, 500, 500)
+      ctx.beginPath()
+      arc_s -= PI / 30
+      ctx.arc(250, 250, 200, 0, PI * 2)
+      ctx.moveTo(250, 250)
+      ctx.lineTo(250 + hour * Math.cos(arc_h), 250 - hour * Math.sin(arc_h))
+      ctx.moveTo(250, 250)
+      ctx.lineTo(250 + minute * Math.cos(arc_m), 250 - minute * Math.sin(arc_m))
+      ctx.moveTo(250, 250)
+      ctx.lineTo(250 + second * Math.cos(arc_s), 250 - second * Math.sin(arc_s))
+      ctx.stroke()
+    }, 10)
+    setInterval(() => {
+      arc_m -= PI / 30
+    }, 599)
+    setInterval(() => {
+      arc_h -= PI / 30
+    }, 7199)
+    
+  </script>
+</body>
+</html>

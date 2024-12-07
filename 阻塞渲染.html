@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render Blocking Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .content {
+      font-size: 24px;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Page Header</h1>
+
+  <!-- 这个脚本会阻塞渲染 -->
+  <script>
+    // 模拟繁重的同步任务，例如耗时的计算
+    const start = Date.now();
+    while (Date.now() - start < 5000) {
+      // 5秒的阻塞操作
+    }
+    console.log("Blocking task completed");
+  </script>
+
+  <p class="content">This is some content that should appear after the script.</p>
+</body>
+</html>

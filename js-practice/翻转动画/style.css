@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #222;
+}
+
+/* 图片组样式 */
+.gallery {
+  max-width: 1200px;
+  padding: 0 40px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* 图片容器样式 */
+.gallery-container {
+  flex: 1;
+  aspect-ratio: 9 / 12;
+  cursor: pointer;
+  -webkit-box-reflect: below 4px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.15));
+  transition: 0.4s;
+  pointer-events: auto;
+}
+
+.gallery-container img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 12;
+  object-fit: cover;
+}
+
+.gallery-container:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*
+  关键点：下面两句是有顺序之分的。
+  CSS 应用的方式是从上到下顺序执行的，所以以下两句的顺序是有影响的。
+  如果顺序反了将不能实现想要的效果。
+*/
+
+/* Hover 图片组之下，没有 hover 属性的元素 */
+.gallery:hover > :not(:hover) {
+  margin-inline: -1.5rem;
+  transform: perspective(400px) rotateY(30deg) scale(0.8);
+}
+
+/* Hover 图片容器之后的同级图片容器样式 */
+.gallery-container:hover ~ .gallery-container {
+  transform: perspective(400px) rotateY(-30deg) scale(0.8);
+}

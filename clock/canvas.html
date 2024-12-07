@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <canvas id="canvas1" width="500" height="500"></canvas>
+    <canvas id="canvas2" width="500" height="500"></canvas>
+    <canvas id="canvas3" width="500" height="500"></canvas>
+    <canvas id="canvas4" width="500" height="500"></canvas>
+    <canvas id="canvas5" width="500" height="500"></canvas>
+    <canvas id="canvas6" width="500" height="500"></canvas>
+    <script>
+      var canvas1 = document.getElementById('canvas1')
+      var canvas2 = document.getElementById('canvas2')
+      var canvas3 = document.getElementById('canvas3')
+      var canvas4 = document.getElementById('canvas4')
+      var canvas5 = document.getElementById('canvas5')
+      var canvas6 = document.getElementById('canvas6')
+      var ctx1 = canvas1.getContext('2d')
+      ctx1.rect(0, 0, 100, 200)
+      // ctx.stroke()  // 描边
+      ctx1.rect(200, 0, 200, 200)
+      ctx1.fill() // 这个是实心填充
+      // ctx.fillRect(200, 0, 200, 200) // 这个方法为简化版实心填充
+      ctx1.clearRect(250, 50, 100, 100)  // 相当于橡皮擦
+
+
+
+      var ctx2 = canvas2.getContext('2d')
+      ctx2.lineWidth = 5
+      ctx2.lineCap = 'round'
+      ctx2.arc(100, 100, 50, 0, Math.PI)  // 默认是顺时针
+      ctx2.stroke()
+      ctx2.beginPath()
+      ctx2.arc(200, 200, 50, 0, Math.PI / 2, true)
+      ctx2.lineTo(100, 200)
+      ctx2.stroke()
+      // ctx2.fill()
+      
+
+      // 文字API
+      var ctx3 = canvas3.getContext('2d')
+      // ctx3.fillText(text, x, y, [, maxWidth])
+      // ctx3.strokeText(text, x, y, [, maxWidth])
+      ctx3.font = '50px 宋体'
+      
+      // ctx3.textAlign = 'center'
+      ctx3.textBaseline = 'middle'  // 基线对齐
+      // ctx3.direction = 'rtl'
+      // 最后一个可选项是文字最大宽度
+      ctx3.fillText('爱落在心海', 50, 100)
+      ctx3.fillText('爱落在心海', 50, 300, 150)
+
+
+      var ctx4 = canvas4.getContext('2d')
+      var img1 = new Image()
+      img1.src = '../../xgirl.jpg'
+      img1.onload = function() {
+        ctx4.drawImage(img1, 0, 0, 200, 130)
+      }
+
+      var img2 = new Image()
+      img2.src = '../../xgirl.jpg'
+      img2.onload = function() {
+        ctx4.drawImage(img2, 0, 200, 200, 200, 200, 200, 30, 30)
+      }
+
+
+
+
+    </script>
+  </div>
+</body>
+</html>

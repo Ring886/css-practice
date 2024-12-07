@@ -1,0 +1,29 @@
+ul {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 55px;
+  font-size: 7em;
+}
+li {
+  background: #b21c1c;
+  animation: move 3s infinite 1s linear;
+}
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, -100px);
+    }
+}
+
+@for $i from 1 to 11 {
+  li:nth-child(#{$i}) {
+      animation-duration: #{random(2000)/1000 + 2}s;
+      animation-delay: #{random(1000)/1000 + 1}s;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "image-size": "^1.1.1",
+    "koa": "^2.15.3",
+    "koa-conditional-get": "^3.0.0",
+    "koa-etag": "^4.0.0",
+    "koa-static": "^5.0.0",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "websocket": "^1.0.35",
+    "ws": "^8.18.0"
+  }
+}

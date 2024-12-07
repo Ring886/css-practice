@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONP Example</title>
+</head>
+<body>
+  <h1>JSONP Example</h1>
+  <button onclick="fetchData()">Fetch Data</button>
+  <div id="result"></div>
+
+  <script>
+    function fetchData() {
+      // 创建 <script> 标签加载 JSONP 数据
+      const script = document.createElement('script');
+      script.src = 'http://localhost:3000/data?callback=handleResponse';  // 执行 handleResponse({...})
+      document.body.appendChild(script);
+    }
+
+    // JSONP 回调函数
+    function handleResponse(data) {
+      document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

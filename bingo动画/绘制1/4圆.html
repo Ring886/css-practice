@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quarter Circle Animation</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="300" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const x = 150; // 圆心X坐标
+  const y = 150; // 圆心Y坐标
+  const radius = 100; // 半径
+  let startAngle = 0; // 初始角度
+  const endAngle = Math.PI / 2; // 结束角度，四分之一圆（90度）
+
+  function animate() {
+    // 清除画布内容
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 重新绘制四分之一圆
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startAngle, endAngle); // 绘制圆弧
+    ctx.lineTo(x, y); // 从圆弧的终点画线回到圆心
+    // ctx.fillStyle = '#4caf50'; // 填充颜色
+    // ctx.fill(); // 填充圆弧区域
+    ctx.stroke(); // 绘制边框
+
+    // 增加角度，逐渐绘制四分之一圆
+    if (startAngle < endAngle - 0.1) {
+      startAngle += 0.01; // 控制绘制的速度
+      requestAnimationFrame(animate); // 请求下一个动画帧
+    }
+  }
+
+  // 启动动画
+  animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .rotate {
+      width: 100px;
+      height: 100px;
+      background-color: brown;
+      transform: translate(100px, 200px) rotate(-25deg);
+      display: none;
+    }
+    .container {
+      width: 0;
+      height: 0;
+      border: 100px solid antiquewhite;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .sector {
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      /* border边长制约扇形角度 */
+      border-top: 100px solid #777;
+      border-left: 57px solid transparent;
+      border-right: 57px solid transparent;
+      border-bottom: 100px solid transparent;
+    }
+
+
+    .warning {
+      position: relative;
+    }
+    .snip{
+      position: absolute;
+      width: 0;
+      height: 0;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      border-right: 57px solid transparent;/*100/√3*/
+      border-left: 57px solid transparent;
+      border-top: 100px solid yellow;
+      border-bottom: 100px solid transparent;
+      border-radius: 100%;
+    }
+    .warning .snip:nth-child(1) {
+      transform: rotate(0deg);
+    }
+    .warning .snip:nth-child(2) {
+      transform: rotate(120deg);
+    }
+    .warning .snip:nth-child(3) {
+      transform: rotate(240deg);
+    }
+
+    canvas {
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+<body>
+  <div class="rotate"></div>
+  <div class="container">
+    <div class="sector"></div>
+  </div>
+
+  <div class="warning">
+    <div class="snip"></div>
+    <div class="snip"></div>
+    <div class="snip"></div>
+  </div>
+
+  <canvas id="canvas" height="500" width="500"></canvas>
+
+  <script>
+    /** @type {HTMLCanvasElement} */
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d') 
+    ctx.fillStyle = 'red'
+    ctx.strokeStyle = 'blue'
+    ctx.moveTo(100, 100)
+    ctx.lineTo(300, 100)
+    ctx.arc(100, 100, 200, 0, Math.PI / 3)
+    ctx.lineTo(100, 100)
+    ctx.fill()
+    ctx.stroke()
+
+
+    ctx.beginPath()
+    ctx.ellipse(200, 100, 80, 50, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'lightblue';
+    ctx.fill();
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
+
+  </script>
+
+</body>
+</html>

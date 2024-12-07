@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Client</title>
+  <style>
+    textarea {
+      vertical-align: top;
+      width: auto;
+      height: 70vh;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text">
+  <button>发送</button>
+  <textarea></textarea>
+  <script>
+    let ws; // 将 WebSocket 对象存储为全局变量
+  
+    function Connect() {
+      if (!ws || ws.readyState === WebSocket.CLOSED) {
+        ws = new WebSocket('ws://39.102.208.63:5857');
+        ws.onopen = () => console.log('Connected to the server');
+        ws.onmessage = (event) => {
+          console.log(event.data);
+          const text = document.querySelector('textarea');
+          text.innerHTML += event.data + '\n'; // 显示所有收到的消息
+        };
+        ws.onclose = () => console.log('Connection closed');
+        ws.onerror = (error) => console.error('WebSocket error:', error);
+      }
+    }
+  
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        console.error('WebSocket is not connected!');
+        return;
+      }
+      const message = document.querySelector('input').value;
+      console.log('输入的内容为:', message);
+      ws.send(message); // 仅发送消息，不重复建立连接
+    });
+  
+    // 初始化连接
+    Connect();
+  </script>
+  
+</body>
+</html>

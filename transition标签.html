@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let show = false
+  </script>
+  <button @click="show = !show" id="btn">Toggle</button>
+  <transition>
+    <p v-if="show">hello</p>
+  </transition>
+  <script>
+    console.log(show)
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', () => {
+      show = !show
+      console.log(show)
+    }, false)
+  </script>
+</body>
+</html>

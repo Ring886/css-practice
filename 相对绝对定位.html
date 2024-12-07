@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #test{
+      height: 300px;
+      width: 300px;
+      background: gray;
+    }
+    /*p标签本身会有padding和margin值*/
+    p{
+      margin: 0px;
+      padding: 0px;
+    }
+    .p1{
+      height: 100px;
+      width: 100px;
+      background: blue;
+    }
+    .p2{
+      height: 80px;
+      width: 80px;
+      background: red;
+    }
+    #test2{
+      height: 300px;
+      width: 300px;
+      background: pink;
+      position: absolute;
+    }
+
+    .p3{
+      height: 100px;
+      width: 100px;
+      background: green;
+      /*設置绝对定位*/
+      position: absolute;
+      left: 30px;
+      top: 30px;
+    }
+
+    .p4{
+      height: 90px;
+      width: 90px;
+      background: gold;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="test">
+      <p class="p1">相对定位：相对于自己原来的位置，偏移一些距离</p>
+      <p class="p2">相对定位,相对的是自己</p>
+  </div>
+
+  <div id="test2">
+      <p class="p3">绝对定位：相对于自己父元素的位置，偏移一些距离</p>
+      <p class="p4">绝对定位,相对的是父元素</p>
+  </div>
+</body>
+</html>

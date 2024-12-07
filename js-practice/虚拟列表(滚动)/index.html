@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 10000px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const body = document.querySelector('body')
+    let start = 0
+    let maxShowPerPage = 10
+    const height = window.innerHeight / maxShowPerPage
+    let preScrollY = 0
+
+    const render = (start) => {
+      const html = document.createElement('div')
+      html.innerHTML = start
+      html.style.margin = '5px'
+      html.style['background-color'] = 'gray'
+      html.style.height = `${height}px`
+      html.style.width = `50px`
+      return html
+    }
+    const update = () => {
+      body.appendChild(render(start))
+      start++
+    }
+    window.addEventListener('scroll', (e) => {
+      console.log(window.innerHeight)
+      if(window.scrollY - preScrollY > height) {
+        preScrollY = window.scrollY
+        update()
+      }
+    })
+    window.onload = function() {
+      for(let i = 0; i < maxShowPerPage; i++) {
+        update(i)
+      }
+      start += maxShowPerPage
+    }
+  </script>
+</body>
+</html>

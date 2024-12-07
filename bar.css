@@ -1,0 +1,24 @@
+.progress-bar {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  animation: progressBar 2s linear infinite;
+}
+
+.bar {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #3498db;
+  transform-origin: 50% 50%;
+  transform: rotate(0deg);
+}
+
+@keyframes progressBar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

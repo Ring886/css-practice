@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <input type="submit">
+  <h1></h1>
+
+  <script>
+    const input = document.querySelector('input[type="text"]')
+    const submit = document.querySelector('input[type="submit"]')
+    const h1 = document.querySelector('h1')
+
+    console.log(Object.prototype.toString.call(input))
+
+    // 经验：监听 HTML 节点时，无法正确对input.value赋值
+    Object.defineProperty(input, 'value', {
+      get: function() {
+        console.log(input.getAttribute('value')) 
+      },
+      set: function(newValue) {
+        input.setAttribute('value', newValue)
+        console.log(newValue)
+        h1.innerText = input.getAttribute('value')
+        console.log('input改变啦')
+      }
+    })
+
+    input.addEventListener('input', (e) => {
+      // console.log(input.value)
+      // h1.innerText = input.value
+      input.value = e.target.value; // 触发自定义的 setter
+    })
+
+  </script>
+</body>
+</html>

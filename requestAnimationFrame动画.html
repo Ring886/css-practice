@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box');
+        let position = 0; // 初始位置
+        let direction = 1; // 方向，1为右，-1为左
+        const maxPosition = window.innerWidth - 50; // 动画的最大水平位置
+
+        function animate() {
+            // 更新位置
+            position += 5 * direction;
+
+            // 碰到边界反向移动
+            if (position >= maxPosition || position <= 0) {
+                direction *= -1; // 反向
+            }
+
+            // 更新样式
+            box.style.transform = `translateX(${position}px)`;
+
+            // 下一帧动画
+            requestAnimationFrame(animate);
+        }
+
+        // 开始动画
+        animate();
+    </script>
+</body>
+</html>

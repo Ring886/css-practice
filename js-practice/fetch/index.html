@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    fetch('http://localhost:3000/api/data')
+      .then((response) => {
+        console.log('Response:', response);
+        // console.log('Response.json():', response.json);
+        return response.json(); // 解析 JSON 数据
+      })
+      .then((data) => {
+        console.log('Data:', data); // 解析后的 JavaScript 数据
+      })
+      .catch((error) => {
+        console.error('Error:', error); // 捕获错误
+      });
+  </script>
+  
+
+</body>
+</html>

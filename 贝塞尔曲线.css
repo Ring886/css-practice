@@ -1,0 +1,162 @@
+.circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateCircle 10s linear infinite;
+}
+
+.letter {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.circle .letter:nth-child(1) {
+  transform: rotate(90deg) translateX(150px) rotate(-90deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(2) {
+  transform: rotate(103.3333333333deg) translateX(150px) rotate(-103.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(3) {
+  transform: rotate(116.6666666667deg) translateX(150px) rotate(-116.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(4) {
+  transform: rotate(130deg) translateX(150px) rotate(-130deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(5) {
+  transform: rotate(143.3333333333deg) translateX(150px) rotate(-143.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(6) {
+  transform: rotate(156.6666666667deg) translateX(150px) rotate(-156.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(7) {
+  transform: rotate(170deg) translateX(150px) rotate(-170deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(8) {
+  transform: rotate(183.3333333333deg) translateX(150px) rotate(-183.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(9) {
+  transform: rotate(196.6666666667deg) translateX(150px) rotate(-196.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(10) {
+  transform: rotate(210deg) translateX(150px) rotate(-210deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(11) {
+  transform: rotate(223.3333333333deg) translateX(150px) rotate(-223.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(12) {
+  transform: rotate(236.6666666667deg) translateX(150px) rotate(-236.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(13) {
+  transform: rotate(250deg) translateX(150px) rotate(-250deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(14) {
+  transform: rotate(263.3333333333deg) translateX(150px) rotate(-263.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(15) {
+  transform: rotate(276.6666666667deg) translateX(150px) rotate(-276.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(16) {
+  transform: rotate(290deg) translateX(150px) rotate(-290deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(17) {
+  transform: rotate(303.3333333333deg) translateX(150px) rotate(-303.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(18) {
+  transform: rotate(316.6666666667deg) translateX(150px) rotate(-316.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(19) {
+  transform: rotate(330deg) translateX(150px) rotate(-330deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(20) {
+  transform: rotate(343.3333333333deg) translateX(150px) rotate(-343.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(21) {
+  transform: rotate(356.6666666667deg) translateX(150px) rotate(-356.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(22) {
+  transform: rotate(370deg) translateX(150px) rotate(-370deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(23) {
+  transform: rotate(383.3333333333deg) translateX(150px) rotate(-383.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(24) {
+  transform: rotate(396.6666666667deg) translateX(150px) rotate(-396.6666666667deg);
+  content: "Y";
+}
+
+.circle .letter:nth-child(25) {
+  transform: rotate(410deg) translateX(150px) rotate(-410deg);
+  content: "P";
+}
+
+.circle .letter:nth-child(26) {
+  transform: rotate(423.3333333333deg) translateX(150px) rotate(-423.3333333333deg);
+  content: "T";
+}
+
+.circle .letter:nth-child(27) {
+  transform: rotate(436.6666666667deg) translateX(150px) rotate(-436.6666666667deg);
+  content: "Y";
+}
+
+/*# sourceMappingURL=%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF.css.map */

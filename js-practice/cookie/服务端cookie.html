@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example</title>
+</head>
+<body>
+  <h1>Cookie Example</h1>
+  <button id="setCookieBtn">Set Cookie</button>
+  <button id="getCookieBtn">Get Cookie</button>
+
+  <script>
+    const setCookieBtn = document.getElementById('setCookieBtn');
+    const getCookieBtn = document.getElementById('getCookieBtn');
+
+    // 点击按钮发送请求设置 cookie
+    setCookieBtn.addEventListener('click', () => {
+      fetch('http://localhost:3000/set-cookie')
+        .then(response => response.text())
+        .then(data => {
+          console.log(data);  // 服务器响应
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    // 点击按钮获取服务器设置的 cookie
+    getCookieBtn.addEventListener('click', () => {
+      fetch('http://localhost:3000/get-cookie')
+        .then(response => response.text())
+        .then(data => {
+          alert(data);  // 在浏览器中显示 cookie 信息
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>

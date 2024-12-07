@@ -1,0 +1,36 @@
+.pulse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  margin: 0 5px;
+  animation: pulse 1.2s cubic-bezier(.215,.61,.355,1) infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -.4s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: -.8s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(.5);
+  }
+  50% {
+    opacity: .1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(.5);
+  }
+}

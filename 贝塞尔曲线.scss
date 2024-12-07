@@ -1,0 +1,58 @@
+$circle-width: 300px;     // 圆的宽度
+$circle-height: 300px;    // 圆的高度
+$font-size: 24px;         // 字体大小
+$letter-spacing: 10px;    // 字母间距（可以调整）
+
+// 计算圆的半径
+$radius: $circle-width / 2;
+
+// 计算圆的周长
+$circumference: 2 * $radius * 3.1416;
+
+// 计算圆上可容纳的字母数量
+$letters-per-circle: floor($circumference / ($font-size + $letter-spacing));
+
+// 定义PTY的字母序列
+$letters: "P", "T", "Y";
+
+// 基本的圆形容器
+.circle {
+  position: relative;
+  width: $circle-width;
+  height: $circle-height;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateCircle 10s linear infinite;
+}
+
+// 定义字母的样式
+.letter {
+  position: absolute;
+  font-size: $font-size;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+// 旋转动画
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// 生成字母的位置
+@for $i from 0 through $letters-per-circle - 1 {
+  .circle .letter:nth-child(#{$i + 1}) {
+    $angle: (360deg / $letters-per-circle) * $i;  // 计算每个字母的角度
+    $rotate: 90deg + $angle;  // 给字母旋转一个合适的角度
+    transform: rotate($rotate) translateX($radius) rotate(-$rotate);  // 字母沿圆周分布
+
+    // 设置字母内容
+    content: nth($letters, mod($i, 3) + 1); // 循环使用 "P", "T", "Y"
+  }
+}
